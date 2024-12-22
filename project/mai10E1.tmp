@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5a4y7ri572ah"]
+[gd_scene load_steps=7 format=3 uid="uid://b5a4y7ri572ah"]
 
 [ext_resource type="Texture2D" uid="uid://db7nnj3fusg5n" path="res://ship_frame_0.png" id="1_w0c38"]
 [ext_resource type="Texture2D" uid="uid://u47f6621ucac" path="res://ship_frame_1.png" id="2_2ae58"]
 [ext_resource type="Script" path="res://ship.gd" id="3_7jar4"]
 [ext_resource type="Texture2D" uid="uid://dy6agtoeo5qja" path="res://blank.png" id="3_gmj0r"]
 [ext_resource type="PackedScene" uid="uid://dr6p5pyddda8w" path="res://asteroid_big.tscn" id="4_7fxbt"]
-[ext_resource type="Script" path="res://start.gd" id="6_4oc7x"]
-[ext_resource type="FontFile" uid="uid://bem8lwultnowf" path="res://font.ttf" id="6_jteb0"]
-[ext_resource type="Script" path="res://over.gd" id="8_y3xfe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dyw57"]
 animations = [{
@@ -96,69 +93,4 @@ position = Vector2(1018, 254)
 [node name="AsteroidBig5" parent="." instance=ExtResource("4_7fxbt")]
 position = Vector2(691, 119)
 
-[node name="Start" type="Node2D" parent="."]
-z_index = 2
-script = ExtResource("6_4oc7x")
-
-[node name="ColorRect" type="ColorRect" parent="Start"]
-offset_left = -4222.0
-offset_top = -2352.0
-offset_right = 5778.0
-offset_bottom = 7648.0
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="Start"]
-offset_left = 314.0
-offset_top = 55.0
-offset_right = 837.0
-offset_bottom = 136.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_jteb0")
-theme_override_font_sizes/font_size = 80
-text = "Asteroids"
-
-[node name="Button" type="Button" parent="Start"]
-offset_left = 441.0
-offset_top = 513.0
-offset_right = 711.0
-offset_bottom = 562.0
-theme_override_fonts/font = ExtResource("6_jteb0")
-theme_override_font_sizes/font_size = 40
-text = "Play Game"
-icon_alignment = 1
-
-[node name="Over" type="Node2D" parent="."]
-visible = false
-z_index = 2
-script = ExtResource("8_y3xfe")
-
-[node name="ColorRect" type="ColorRect" parent="Over"]
-offset_left = -4222.0
-offset_top = -2352.0
-offset_right = 5778.0
-offset_bottom = 7648.0
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="Over"]
-offset_left = 314.0
-offset_top = 55.0
-offset_right = 837.0
-offset_bottom = 136.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_jteb0")
-theme_override_font_sizes/font_size = 80
-text = "Game Over"
-
-[node name="Button" type="Button" parent="Over"]
-offset_left = 426.0
-offset_top = 513.0
-offset_right = 725.0
-offset_bottom = 562.0
-theme_override_fonts/font = ExtResource("6_jteb0")
-theme_override_font_sizes/font_size = 40
-text = "Play Again"
-icon_alignment = 1
-
 [connection signal="area_entered" from="Ship/Area2D" to="Ship" method="_on_collision"]
-[connection signal="pressed" from="Start/Button" to="Ship" method="_on_button_pressed"]
-[connection signal="pressed" from="Over/Button" to="Ship" method="_on_button_pressed"]
