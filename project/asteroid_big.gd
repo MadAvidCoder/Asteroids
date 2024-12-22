@@ -11,20 +11,22 @@ func _on_area_area_entered(area: Area2D):
 	if "asteroid" in area.name:
 		dir = -dir
 	elif area.name == "bullet_area":
-		$"../Points".text = str(int($"../Points".text)+50)
-		var new = medium.instantiate()
-		new.position = self.position
-		add_sibling(new)
-		new = medium.instantiate()
-		new.position = self.position
-		add_sibling(new)
-		self.queue_free()
-		area.get_parent().position.x = -100
+		if started:
+			$"../Points".text = str(int($"../Points".text)+50)
+			var new = medium.instantiate()
+			new.position = self.position
+			add_sibling(new)
+			new = medium.instantiate()
+			new.position = self.position
+			add_sibling(new)
+			self.queue_free()
+			area.get_parent().position.x = -100
 
 func _started():
 	started = true
 
 func _over():
+	started = false
 	self.queue_free()
 
 func _ready() -> void:

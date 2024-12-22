@@ -4,6 +4,7 @@ var area
 var type
 var vel
 var dir = 1
+var active = true
 @onready var big = preload("res://asteroid_big.tscn")
 @onready var medium = preload("res://asteroid_medium.tscn")
 @onready var small = preload("res://asteroid_small.tscn")
@@ -12,18 +13,20 @@ func _on_area_area_entered(area: Area2D):
 	if "asteroid" in area.name:
 		dir = -dir
 	elif area.name == "bullet_area":
-		$"../Points".text = str(int($"../Points".text)+50)
-		var new = small.instantiate()
-		new.position = self.position
-		add_sibling(new)
-		new = small.instantiate()
-		new.position = self.position
-		add_sibling(new)
-		self.queue_free()
-		area.get_parent().position.x = -100
+		if active:
+			$"../Points".text = str(int($"../Points".text)+50)
+			var new = small.instantiate()
+			new.position = self.position
+			add_sibling(new)
+			new = small.instantiate()
+			new.position = self.position
+			add_sibling(new)
+			self.queue_free()
+			area.get_parent().position.x = -100
 
 func _over():
 	self.queue_free()
+	active = false
 
 func _ready() -> void:
 	randomize()
