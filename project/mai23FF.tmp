@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5a4y7ri572ah"]
+
+[ext_resource type="Texture2D" uid="uid://db7nnj3fusg5n" path="res://ship_frame_0.png" id="1_w0c38"]
+[ext_resource type="Texture2D" uid="uid://u47f6621ucac" path="res://ship_frame_1.png" id="2_2ae58"]
+[ext_resource type="Script" path="res://ship.gd" id="3_7jar4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyw57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w0c38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2ae58")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ship" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(79, 66)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_dyw57")
+script = ExtResource("3_7jar4")

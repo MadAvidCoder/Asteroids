@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg23qs0tptev0"]
+
+[ext_resource type="Texture2D" uid="uid://c2dbut75vlpxe" path="res://asteroid_medium.png" id="1_qn7x2"]
+[ext_resource type="Script" path="res://asteroid_medium.gd" id="2_3fece"]
+
+[node name="AsteroidMedium" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(3.3, 3.3)
+texture = ExtResource("1_qn7x2")
+script = ExtResource("2_3fece")
+metadata/type = "Medium"
+
+[node name="medium_asteroid_area" type="Area2D" parent="." groups=["asteroid"]]
+
+[node name="Collider" type="CollisionPolygon2D" parent="medium_asteroid_area"]
+polygon = PackedVector2Array(-2.12121, -14.5455, 3.33333, -14.2424, 4.24242, -13.3333, 5.15152, -12.1212, 6.06061, -11.2121, 7.27273, -10, 7.27273, -5.75758, 6.36364, -5.15152, 5.75758, -4.54545, 5.45455, -2.42424, 5.75758, -0.606061, 6.66667, 0, 6.9697, 1.51515, 7.87879, 2.12121, 9.09091, 3.63636, 10.9091, 5.15152, 11.2121, 6.66667, 10.9091, 8.48485, 10.6061, 9.39394, 9.69697, 9.39394, 9.69697, 10.303, 6.06061, 10.6061, 5.15152, 9.09091, -2.12121, 9.39394, -2.42424, 10.303, -4.24242, 9.39394, -7.57576, 9.09091, -7.87879, 8.18182, -9.39394, 8.18182, -10.6061, 6.66667, -12.4242, 5.15152, -13.3333, 3.33333, -13.3333, 1.81818, -12.7273, -0.30303, -11.2121, -2.12121, -9.69697, -1.81818, -8.18182, -4.84848, -7.57576, -7.87879, -6.66667, -8.48485, -6.06061, -10, -4.54545, -11.8182)

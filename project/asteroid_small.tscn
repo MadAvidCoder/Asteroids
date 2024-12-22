@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://lgr34054281o"]
+
+[ext_resource type="Texture2D" uid="uid://t1ymcaka0lsf" path="res://asteroid_small.png" id="1_e4wjf"]
+[ext_resource type="Script" path="res://asteroid_small.gd" id="2_5o40h"]
+
+[node name="AsteroidSmall" type="Sprite2D" groups=["asteroid"]]
+texture_filter = 1
+position = Vector2(1, 1)
+scale = Vector2(3.1, 3.1)
+texture = ExtResource("1_e4wjf")
+script = ExtResource("2_5o40h")
+metadata/type = "Small"
+
+[node name="small_asteroid_area" type="Area2D" parent="."]
+
+[node name="Collider" type="CollisionPolygon2D" parent="small_asteroid_area"]
+polygon = PackedVector2Array(-2.58065, 6.45161, -1.29032, 7.41936, 3.22581, 7.09678, 3.54839, 6.12903, 5.16129, 6.12903, 6.12903, 5.16129, 8.06452, 3.87097, 8.06452, 2.25806, 7.09678, 1.93548, 7.09678, 0.645161, 5.80645, -0.322581, 5.16129, -1.29032, 4.51613, -2.58065, 3.22581, -2.90323, 3.22581, -8.06452, 0.967742, -9.67742, -0.645161, -9.03226, -2.25806, -6.77419, -3.54839, -4.83871, -3.87097, -1.6129, -3.54839, 4.51613, -2.58065, 4.83871)
