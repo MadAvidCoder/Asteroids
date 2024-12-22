@@ -96,8 +96,18 @@ position = Vector2(1018, 254)
 [node name="AsteroidBig5" parent="." instance=ExtResource("4_7fxbt")]
 position = Vector2(691, 119)
 
+[node name="Points" type="Label" parent="."]
+z_index = 3
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 141.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("6_jteb0")
+theme_override_font_sizes/font_size = 50
+text = "0"
+
 [node name="Start" type="Node2D" parent="."]
-z_index = 2
+z_index = 4
 script = ExtResource("6_4oc7x")
 
 [node name="ColorRect" type="ColorRect" parent="Start"]

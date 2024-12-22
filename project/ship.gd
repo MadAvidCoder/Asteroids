@@ -141,6 +141,7 @@ func _on_collision(area: Area2D) -> void:
 func _on_button_pressed() -> void:
 	started = true
 	lives = 3
+	$"../Points".text = str(0)
 	$"../Life1".show()
 	$"../Life2".show()
 	$"../Life3".show()

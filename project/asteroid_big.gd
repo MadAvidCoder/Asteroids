@@ -11,6 +11,7 @@ func _on_area_area_entered(area: Area2D):
 	if "asteroid" in area.name:
 		dir = -dir
 	elif area.name == "bullet_area":
+		$"../Points".text = str(int($"../Points".text)+50)
 		var new = medium.instantiate()
 		new.position = self.position
 		add_sibling(new)
